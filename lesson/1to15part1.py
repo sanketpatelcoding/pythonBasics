@@ -74,21 +74,21 @@
 # ----------------------------------------------------
 # 11 Implement a function to find the second largest element in a list.
 # (with internet help)
-numbers = [10, 25, 15, 40, 30]
-
-def funx(list):
-    largest = second = list[0]
-    # setting both to first element
-    for num in list:
-        if num > largest:
-            second = largest
-            largest = num
-        elif num > second and num != largest:
-            second = num
-    return second
-
-print("Second largest is:", funx(numbers))
-
+# numbers = [10, 25, 15, 40, 30]
+#
+# def funx(list):
+#     largest = second = list[0]
+#     # setting both to first element
+#     for num in list:
+#         if num > largest:
+#             second = largest
+#             largest = num
+#         elif num > second and num != largest:
+#             second = num
+#     return second
+#
+# print("Second largest is:", funx(numbers))
+#
 
 # ---------------------------------------------
 
@@ -108,6 +108,113 @@ print("Second largest is:", funx(numbers))
 #     return lst
 #
 # print("asc order:", a(numbers))
+
+# =================================================
+
+# 6.Factorial of a number
+# def factorial(n):
+#     a = 1
+#     for i in range(1, n + 1):
+#         a *= i
+#     return a
+#
+# n = int(input("Enter a number to find factorial"))
+# print(f'Factorial  is {factorial(n)}')
+
+# ------------------------------------
+
+# 1 prime number or not
+#
+# def checkp(n):
+#     if n <= 1 and n==0:
+#         return False
+#     for i in range(2, n):
+#         if n % i == 0:
+#             return False
+#     return True
+#
+# n = int(input("Enter  number"))
+# if checkp(n):
+#     print(f"{n} is prime .")
+# else:
+#     print(f"{n} not a prime.")
+
+# -------------------------------
+# 4/duplicate remove from list
+# def removeduplicate(l1):
+#     result = []
+#     for item in l1:
+#         if item not in result:
+#             result.append(item)
+#     return result
+# l1 = [1, 2, 3, 2, 4]
+# print(removeduplicate(l1))
+
+# -------------------------------------
+# 5/ check 4 palindrome series
+# not working propoerly for spqce
+# def palind(s):
+#     return s == s[::-1]
+#
+# s = input('Enter a string')
+# if palind(s):
+#     print(' palindrome.')
+# else:
+#     print('not a palindrome.')
+
+# -------------------------------------
+# 10 fibonacci series generate
+# def f(n):
+#     a = 0
+#     b = 1
+#     for _ in range(n):
+#         print(a, end=' ')
+#         a, b = b, a + b
+#
+# n = int(input("Enter number: "))
+# f(n)
+
+
+# ===============================
+# 12.       vowel
+
+
+# def countvowels(s):
+#     vowels = "aeiouAEIOU"
+#     count = 0
+#     for char in s:
+#         if char in vowels:
+#
+#             count += 1
+#     return count
+# s = input('Enter string')
+# print("Number of vowels", countvowels(s))
+
+# -----------------------
+#(from internet)
+# def anag(str1, str2):
+#     return sorted(str1) == sorted(str2)
+# s1 = input("Enter first string: ")
+# s2 = input("Enter second string: ")
+#
+# if anag(s1, s2):
+#     print("The strings are anagrams.")
+# else:
+#     print("The strings are not anagrams.")
+# =======================================
+
+#14 Implement a function to find the intersection of two lists.
+
+def f(l1, l2):
+    result = []
+    for item in l1:
+        if item in l2 and item not in result:
+            result.append(item)
+    return result
+l1 = [1, 2, 3, 4, 5]
+l2 = [4, 5, 6, 7, 8]
+
+print(f' this is{f(l1, l2)}')
 
 
 
