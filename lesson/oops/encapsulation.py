@@ -18,16 +18,11 @@ class Employee(Person):
     def get_employee_info(self):
         print(f"name is: {self.name}")
         print(f"emp id: {self._employee_id}")
-
-
-
 emp1 = Employee("Sanket", 30)
 
 emp1.get_employee_info()
 
 print(" getter:", emp1.get_employee_id())
-
-
 emp1.set_employee_id("ddfd")
 print(f"new id:{emp1.get_employee_info()}")
 
