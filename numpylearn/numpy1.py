@@ -119,3 +119,107 @@ import numpy as np
 
 # =================================================
 
+
+# *********************************************
+#
+# Random:
+
+# singlerandom = np.random.rand()
+# print("one random number:", singlerandom)
+# array1d = np.random.rand(5)
+# print("1D array:", array1d)
+# array2d = np.random.rand(4, 2)
+# print("2D array:\n", array2d)
+
+# ==========================================
+
+#np.random.randn(): generates random numbers from a standard normal distribution
+# same as above but from given distribution
+# --------------------------------------------------
+
+# random integer between 0 and 9
+# singlerandom = np.random.randint(10)
+# print(singlerandom)
+# array1d = np.random.randint(1, 11, size=4)
+# print("1d Array:", array1d)
+# array2d = np.random.randint(-5, 6, size=(3, 2))
+# print("2D array:", array2d)
+
+# ----------------------------------
+# np.random.choice(): Random samples from an array.
+# arr = [1, 2, 3, 4, 5]
+# print(np.random.choice(arr, size=3))
+# # without replacement
+# print(np.random.choice(arr, size=3, replace=False) )
+# -------------------------------------
+# Statistical Methods:
+# data = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20,22,24,26,28,30]
+# percentiles = np.percentile(data, q=[25, 50, 75])
+# print(percentiles)
+# =========================================
+# data2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+# medianalongaxis0 = np.percentile(data2d, q=50, axis=0)
+# print(medianalongaxis0)
+
+# =====histogram
+
+# data = [1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 5]
+# hist, binedges = np.histogram(data, bins=6)
+# print("Histo counts:", hist)
+# print("Bin edges:", binedges)
+
+# =========================
+
+# it is in 3 modes
+# 1)For mode='valid': Computes correlation only
+# where 2 fully overlaps with 1
+# For mode='same': Output size matches (not sure with what)len of 1
+# with zero-padding where needed.
+# For mode='full': Computes correlation for all possible overlaps,
+# resulting in len 1+len 2
+
+# -------------------------------correlate
+a = [1, 2, 3, 4]
+v = [0, 1, 0.5]
+# second one is genreally a reference/template
+# valid = np.correlate(a, v, mode='valid')
+# same = np.correlate(a, v, mode='same')
+# full = np.correlate(a, v, mode='full')
+#
+# print("Valid mode:", valid)
+# print("Same mode:", same)
+# print("Full mode:", full)
+
+# ===============file i/o
+# Save the array to a file
+# Load the array from the file
+
+# arr = np.array([[1, 2, 3], [4, 5, 6]])
+# np.save('a.npy', arr)
+# loadedarray = np.load('a.npy')
+# print("orignl:\n", arr)
+# print("loadign orgnl:", loadedarray)
+# np.savetxt(), np.loadtxt()
+# np.savetxt('sample.txt',arr)
+# print(f'loading from file:{np.loadtxt('sample.txt')}')
+# ----------------------------------
+
+# *************************************
+# Masked Arrays:
+# np.ma.masked_array(): Create a masked array to handle missing or invalid data.
+# ************************************
+# Create sample data(t)
+# Create a mask (True for elements to be masked)
+# Create a masked array
+# import numpy.ma as ma
+# # data = np.array([1, 2, 3, 4, 5])
+# data = np.array(['one', 'two', 'three', 'four', 'five'])
+# mask = [False, False, False, False, True]
+# maskedarray = ma.masked_array(data, mask=mask)
+# print("maskedarray:", maskedarray)
+# print("data with mask:", maskedarray.data)
+# print("only mask:", maskedarray.mask)
+# print("fil that with certain:", maskedarray.filled(fill_value=-6))
+#
+
+
