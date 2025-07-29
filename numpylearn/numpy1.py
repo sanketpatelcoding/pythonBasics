@@ -179,8 +179,8 @@ import numpy as np
 # resulting in len 1+len 2
 
 # -------------------------------correlate
-a = [1, 2, 3, 4]
-v = [0, 1, 0.5]
+# a = [1, 2, 3, 4]
+# v = [0, 1, 0.5]
 # second one is genreally a reference/template
 # valid = np.correlate(a, v, mode='valid')
 # same = np.correlate(a, v, mode='same')
@@ -220,6 +220,57 @@ v = [0, 1, 0.5]
 # print("data with mask:", maskedarray.data)
 # print("only mask:", maskedarray.mask)
 # print("fil that with certain:", maskedarray.filled(fill_value=-6))
+#====================================================
+
+# ********************************************
+# Linear Algebra:
+# ------------------------------------------------------
+# np.dot(): Dot product of two arrays.
+# a=[1,2,3,4]
+# b=[5,6,7,8]
+# c=np.dot(a,b)
+# print(c)
+# ========================================================
+# np.linalg.inv(): Inverse of a matrix.
+
+# a=[[1,2],[3,4]]
+# inva=np.linalg.inv(a)
+# print(inva)
+# -------------------------------------
+
+# np.linalg.det(): Determinant of a matrix.
+# a=[[1,2,3,4],[4,16,25,36],[1,2,3,4],[1,2,3,4]]
+# b=np.linalg.det(a)
+# print(b)
+# To work the determinant- our matrix must be square( 2×2, 3×3, 4×4.).
+# -------------------------------------------
+# np.linalg.eig(): Eigenvalues and eigenvectors.
+# =========================================
+# a=[[1,2,3,4],[4,16,25,36],[1,2,3,4],[1,2,3,4]]
+# e_val,e_vector=np.linalg.eig(a)
+# print(f'values-{e_val} and \n vector{e_vector}')
+# ================================================
+# *****************************************
+# FFT (Fast Fourier Transform):
+
+# steps
+# np.fft.fft() converts the time-domain signal to frequency domain.
+a=np.linspace(1,2,10)
+# print(a)
+b=np.fft.fft(a)
+print(b)
+# np.abs() gives magnitude of each frequency component.(not needed)
 #
+# np.fft.fftfreq() computes frequency bins.
+d=np.fft.fftfreq(2)
+print(d)
+
+# np.fft.fft(): Compute the one-dimensional discrete Fourier Transform.
+e= np.fft.fft([1,2])
+print(e)
+# np.fft.ifft(): Compute the inverse of the one-dimensional discrete Fourier Transform.
+f= np.fft.ifft([1,2])
+print(f)
+# *****************************************
 
 
