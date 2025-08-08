@@ -13,7 +13,8 @@ todo_dataframe = pd.DataFrame(todo_data)
 
 print("Displaying three columns (id, todo, completed):")
 print(todo_dataframe[['id','userId', 'todo', 'completed']])
-
+print(todo_dataframe[['id','userId', 'todo']])
+print(todo_dataframe[['id','userId', 'completed']])
 # -----------------------------------------
 print("Displaying==========")
 print(todo_dataframe.info())
