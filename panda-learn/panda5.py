@@ -4,7 +4,7 @@ import numpy as np
 
 
 df = pd.read_csv("heart.csv")
-
+print("Original DataFrame:\n", df.head(2))
 #
 # Merging and Concatenating:
 # pd.concat(): Concatenate DataFrames along a particular axis.
@@ -47,13 +47,15 @@ merged_df = pd.merge(df4, df3, on='target', how='inner')
 print("Merged DataFrame:\n", merged_df)
 
 # 3
-# import matplotlib.pyplot as plt(not working)
+import matplotlib.pyplot as plt
+# (not working)
 #
-# # Simple line plot of 'age' vs 'target'
-# df.plot(x='age', y='target', kind='line')
-# plt.title("Age vs Target")
-# plt.xlabel("Age")
-# plt.ylabel("Target")
-# plt.show()
+# # 'age' vs 'target'
+df.plot(x='age', y='chol', kind='scatter')
+# kind line,bar,pie,scatter
+plt.title("Age vs cholestrol")
+plt.xlabel("Age")
+plt.ylabel("chol")
+plt.show()
 
 
