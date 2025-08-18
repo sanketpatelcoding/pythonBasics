@@ -1,0 +1,59 @@
+Load the dataset into a pandas DataFrame and display the first 5 rows.
+
+Check the basic information about the dataset (data types, non-null counts).
+
+Display the summary statistics of numerical columns.
+
+Count the number of unique values in each column.
+
+Find the total number of calls made in the dataset.
+
+Calculate the total duration of all calls combined.
+
+Count how many SMS messages were sent.
+
+Find the most frequently used mobile network.
+
+Calculate the average duration of calls.
+
+Identify the month with the highest number of communications.
+
+Group the data by 'network' and calculate the total duration for each network.
+
+Find the day with the highest number of calls.
+
+Calculate the percentage of data usage vs calls vs SMS.
+
+Create a new column 'call_type' that categorizes calls as 'short' (<1 min), 'medium' (1-5 min), or 'long' (>5 min).
+
+Calculate the average call duration for each network provider.
+
+Find the network with the highest average call duration.
+
+Count how many communications occurred on each date.
+
+Calculate the total duration of communications for each day.
+
+Find the most active hour of communication (assuming all occurred at same time for this dataset).
+
+Create a pivot table showing the count of each item type (call, sms, data) per network.
+
+Calculate the rolling 2-day average of call durations.
+
+Identify any anomalies in call durations (values beyond 3 standard deviations from mean).
+
+Create a new DataFrame that shows the count and total duration of each item type per month.
+
+Calculate the cumulative sum of call durations over time.
+
+Find the longest continuous sequence of calls from the same network.
+
+Calculate the time difference between consecutive communications (requires datetime conversion).
+
+Create a function to categorize days as "high activity" or "low activity" based on number of communications.
+
+Calculate the network that was used most for each type of communication (call, sms, data).
+
+Find the ratio of outgoing calls to SMS messages for each network.
+
+Create a summary DataFrame that shows for each network: total calls, total SMS, total duration, and average duration.
