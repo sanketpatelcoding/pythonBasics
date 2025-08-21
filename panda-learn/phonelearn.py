@@ -69,12 +69,21 @@ print(df.head(5))
 
 # ---------------------
 # Calculate the average duration of calls.
-print(df['item'].unique())
-print(df[df['item'] == 'call']['duration'])
-print(df.groupby('duration').size())
-print("\nAverage call duration", df[df['item'] == 'call']['duration'].mean())
+# print(df['item'].unique())
+# print(df[df['item'] == 'call']['duration'])
+# print(df.groupby('duration').size())
+# print("\nAverage call duration", df[df['item'] == 'call']['duration'].mean())
 
 
+# -------------------------------------------
+
+# Identify the month with the highest number of communications.
+def higest_comm_mnth(df):
+    print(df['month'].unique())
+    x=df.groupby('month').size()
+    print(x)
+    print(f'hihghest comm mnth {x.idxmax()}')
+higest_comm_mnth(df)
 
 
 
