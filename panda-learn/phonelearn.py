@@ -141,5 +141,13 @@ print(commcountsperday)
 
 # --------------------------------------------------------------
 
+# Calculate the total duration of communications for each day.(from net)
+# definition " to_datetime" is a function primarily found in the Pandas library in Python,
+# used for converting various date and time representations into standardized
+# Pandas datetime objects.
 
+df['date_only'] = pd.to_datetime(df['date']).dt.date
+total_durations = df.groupby('date_only')['duration'].sum()
+print("Total duration of communication/ day in second")
+print(total_durations)
 
