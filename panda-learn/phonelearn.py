@@ -123,13 +123,23 @@ print(df.head(5))
 
 #-----------------------------------------------------
 # Find the network with the highest average call duration.# sort_values -> ascending=[False, True]
-def highest_avg_call_duration(df):
-    avg_durations = df[df['item'] == 'call'].groupby('network')['duration'].mean()
-    print("\nAverage call duration per network in second:")
-    print(avg_durations)
-    print('\n')
-    print("Network with highest average call duration:", avg_durations.sort_values(ascending=False).index[0])
+# def highest_avg_call_duration(df):
+#     avg_durations = df[df['item'] == 'call'].groupby('network')['duration'].mean()
+#     print("\nAverage call duration per network in second:")
+#     print(avg_durations)
+#     print('\n')
+#     print("Network with highest average call duration:", avg_durations.sort_values(ascending=False).index[0])
+#
+# highest_avg_call_duration(df)
 
-highest_avg_call_duration(df)
+#---------------------------------------------------------
+
+# Count how many communications occurred on each date.
+commcountsperday = df.groupby('date').size()
+print("Number of communications  date wise")
+print(commcountsperday)
+
+# --------------------------------------------------------------
+
 
 
