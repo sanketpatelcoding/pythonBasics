@@ -17,6 +17,11 @@ print('---------------------------------------------')
 # ----------------------------------------------------------
 # print("\ndataset info")
 # print(df.info())
+
+# def information(df):
+#     return df.info()
+
+
 print('---------------------------------------------')
 # print("\ndataset dscription")
 # print(df.describe())
@@ -25,6 +30,13 @@ print('---------------------------------------------')
 print(df.head(5))
 # print(df.nunique())
 # print('-------------- total number of calls-------')
+# def total_calls(df):
+#     return df[df['item'] == 'call'].shape[0]
+#
+# total = total_calls(df)
+# print('Total numbers of calls', total)
+# print('****************************************')
+#
 # totalcalls = len(df[df['item'] == 'call'])
 # print(f"\nTotal number of calls: {totalcalls}")
 # print('-------------- Distinct values in the item column (self)-------------------------------')
@@ -78,12 +90,46 @@ print(df.head(5))
 # -------------------------------------------
 
 # Identify the month with the highest number of communications.
-def higest_comm_mnth(df):
-    print(df['month'].unique())
-    x=df.groupby('month').size()
-    print(x)
-    print(f'hihghest comm mnth {x.idxmax()}')
-higest_comm_mnth(df)
+# def higest_comm_mnth(df):
+#     print(df['month'].unique())
+# print(df['month'].unique())(not sure ask)
+#     x=df.groupby('month').size()
+#     print(x)
+#     print(f'hihghest comm mnth {x.idxmax()}')
+# higest_comm_mnth(df)
 
+# ============================================
+# Calculate the percentage of data usage vs calls vs SMS.(wrong che)
+
+# length = len(df)
+# print(length)
+# counts = df.groupby('item').size()
+# print(f'{counts}')
+# percentages = ((counts / length) * 100)
+# print(percentages)
+# =======================
+
+# print('shape',df.shape)
+# print(f'nultiplication :{df.shape[0]*df.shape[1]}')
+# print('size',df.size)
+# print('len',len(df))
+# call_length=len(df[df['item']=='call'])
+# sms_length=len(df[df['item']=='sms'])
+# data_length=len(df[df['item']=='data'])
+#
+# print('call length',call_length)
+# print('sms length',sms_length)
+# print('data length',data_length)
+
+#-----------------------------------------------------
+# Find the network with the highest average call duration.# sort_values -> ascending=[False, True]
+def highest_avg_call_duration(df):
+    avg_durations = df[df['item'] == 'call'].groupby('network')['duration'].mean()
+    print("\nAverage call duration per network in second:")
+    print(avg_durations)
+    print('\n')
+    print("Network with highest average call duration:", avg_durations.sort_values(ascending=False).index[0])
+
+highest_avg_call_duration(df)
 
 

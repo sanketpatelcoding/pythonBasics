@@ -20,7 +20,7 @@ Identify the month with the highest number of communications.
 
 Group the data by 'network' and calculate the total duration for each network.
 
-Find the day with the highest number of calls.
+Find the day with the highest number of calls.(baki)
 
 Calculate the percentage of data usage vs calls vs SMS.
 
