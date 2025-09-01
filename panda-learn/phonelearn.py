@@ -135,9 +135,9 @@ print(df.head(5))
 #---------------------------------------------------------
 
 # Count how many communications occurred on each date.
-commcountsperday = df.groupby('date').size()
-print("Number of communications  date wise")
-print(commcountsperday)
+# commcountsperday = df.groupby('date').size()
+# print("Number of communications  date wise")
+# print(commcountsperday)
 
 # --------------------------------------------------------------
 
@@ -145,9 +145,25 @@ print(commcountsperday)
 # definition " to_datetime" is a function primarily found in the Pandas library in Python,
 # used for converting various date and time representations into standardized
 # Pandas datetime objects.
+#
+# df['date_only'] = pd.to_datetime(df['date']).dt.date
+# total_durations = df.groupby('date_only')['duration'].sum()
+# print("Total duration of communication/ day in second")
+# print(total_durations)
 
-df['date_only'] = pd.to_datetime(df['date']).dt.date
-total_durations = df.groupby('date_only')['duration'].sum()
-print("Total duration of communication/ day in second")
-print(total_durations)
+#
+# Create a pivot table showing the count
+# of each item type (call, sms, data)
+# per network. aggfunc is important
+# pivot = pd.pivot_table(df, index='network', columns='item', aggfunc='size', fill_value=0)
+# print("\nPivot table count of each item type per network:")
+# print(pivot)
+# -----------------------------------------------------------------------
+# Create a new DataFrame that shows the
+# count and total duration of each item type per month. agg is imp
+# newdf = df.groupby(['month', 'item']).agg({'item': 'size', 'duration': 'sum'}).rename(columns={'item': 'count'})
+# print("\ncount and total duration of each item prer month:")
+# print(newdf)
+
+# Calculate the cumulative sum of call durations over time.
 

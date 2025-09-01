@@ -34,11 +34,11 @@ Count how many communications occurred on each date.
 
 Calculate the total duration of communications for each day.
 
-Find the most active hour of communication (assuming all occurred at same time for this dataset).
+(baaki)Find the most active hour of communication (assuming all occurred at same time for this dataset).
 
 Create a pivot table showing the count of each item type (call, sms, data) per network.
 
-Calculate the rolling 2-day average of call durations.
+()Calculate the rolling 2-day average of call durations.
 
 Identify any anomalies in call durations (values beyond 3 standard deviations from mean).
 
