@@ -167,3 +167,8 @@ print(df.head(5))
 
 # Calculate the cumulative sum of call durations over time.
 
+print(list(df.columns))
+# --------------------------------
+print('================')
+# Create a summary DataFrame that shows for each network: total calls, total SMS, total duration, and average duration.
+
