@@ -89,37 +89,73 @@ x = np.array([1, 2, 3, 4, 5])
 # plt.grid(True)
 # plt.show()
 # explain:(6, 8) means the 6 inches wide and 8 inches tall.
-x = np.array([1, 2, 3, 4])
-y = np.array([10, 20, 25, 30])
-# fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(6, 8))
-# ax1=plt.subplot(121)
-ax1=plt.subplot(211)
-ax1.plot(x, y, color='blue')
-ax1.set_title('line graph')
-ax1.set_xlabel('X-axis')
-ax1.set_ylabel('Y-axis')
-ax1.grid(True)
-# ax2=plt.subplot(122)
-ax2=plt.subplot(212)
-# for scatter
-# =================================================
-ax2.scatter(x, y, color='purple', s=100, marker='x')
-ax2.set_title('Scatter Plot')
-ax2.set_xlabel('X-axis')
-ax2.set_ylabel('Y-axis')
-ax2.grid(True)
-plt.tight_layout()
-plt.show()
-
+# x = np.array([1, 2, 3, 4])
+# y = np.array([10, 20, 25, 30])
+# # fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(6, 8))
+# # ax1=plt.subplot(121)
+# ax1=plt.subplot(211)
+# ax1.plot(x, y, color='blue')
+# ax1.set_title('line graph')
+# ax1.set_xlabel('X-axis')
+# ax1.set_ylabel('Y-axis')
+# ax1.grid(True)
+# # ax2=plt.subplot(122)
+# ax2=plt.subplot(212)
+# # for scatter
+# # =================================================
+# ax2.scatter(x, y, color='purple', s=100, marker='x')
+# ax2.set_title('Scatter Plot')
+# ax2.set_xlabel('X-axis')
+# ax2.set_ylabel('Y-axis')
+# ax2.grid(True)
+# plt.tight_layout()
+# plt.show()
+#
 # x = np.array([1, 2, 3, 4])
 # y = np.array([10, 20, 25, 30])
 # plt.figure(figsize=(6, 4))
 # plt.scatter(x, y, color='purple', s=100, marker='o')
 # plt.text(4, 30, 'Max Value', fontsize=12, color='black')
 # plt.annotate('Peak', xy=(3, 25), xytext=(2, 28),
-#              arrowprops=dict(facecolor='black', shrink=0.05))
+#  arrowprops=dict(facecolor='black', shrink=0.1))
 # plt.title('Scatter Plot with Text and Annotation')
 # plt.xlabel('X-axis')
 # plt.ylabel('Y-axis')
 # plt.grid(True)
 # plt.show()
+
+
+# # histog
+# hours_studied = [5, 10, 15, 8, 20, 12, 25, 30, 18, 22, 7, 14, 28, 16, 9, 11, 19, 24]
+# bins = [0, 5, 10, 15, 20, 25, 30, 35]
+#
+#
+# plt.hist(hours_studied, bins=bins, histtype='bar', color='black', edgecolor='darkblue', rwidth=0.8)
+# plt.xlabel('hours Studied in one week')
+# plt.ylabel('Num of Student')
+# plt.title('weekly study hours graph')
+#
+#
+# plt.grid()
+# plt.tight_layout()
+#
+# plt.show()
+
+
+height = np.array([125, 138, 144, 193, 180, 176, 155, 183, 172, 140, 139])
+weight = np.array([66, 82, 72, 88, 70, 90, 60, 79, 64, 55, 66])
+bmi = weight / ((height / 100) ** 2)
+# ax = plt.axes(projection='3d')
+# ax.scatter(height, weight)
+# plt.show()
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(height, weight, bmi, c='blue')
+
+# Labels
+ax.set_xlabel('height')
+ax.set_ylabel('weight')
+ax.set_zlabel('bmi')
+
+# Show plot
+plt.show()
