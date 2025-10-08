@@ -166,9 +166,19 @@ print(df.head(5))
 # print(newdf)
 
 # Calculate the cumulative sum of call durations over time.
-
-print(list(df.columns))
+#
+# print(list(df.columns))
 # --------------------------------
 print('================')
 # Create a summary DataFrame that shows for each network: total calls, total SMS, total duration, and average duration.
 
+# Find the ratio of outgoing calls to SMS messages for each network.
+# counts = df.groupby(['network', 'item']).size().unstack()
+# r=counts['call'] / counts['sms']
+# print(f'{r}')
+# unstack grouped count to dataframe conversion
+
+
+df = pd.read_csv("phone_data.csv")
+print(df.groupby(['network', 'item']).size().unstack(fill_value=0)[['call', 'sms']].join(df.groupby('network')['duration'].agg(['sum', 'mean'])))
+# need to learn this if other way is possible.

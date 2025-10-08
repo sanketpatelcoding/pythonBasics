@@ -149,8 +149,9 @@ bmi = weight / ((height / 100) ** 2)
 # ax.scatter(height, weight)
 # plt.show()
 fig = plt.figure()
+
 ax = fig.add_subplot(111, projection='3d')
-ax.scatter(height, weight, bmi, c='blue')
+ax.scatter(height, weight, bmi, color='blue',orientation='vertical')
 
 # Labels
 ax.set_xlabel('height')
@@ -159,3 +160,12 @@ ax.set_zlabel('bmi')
 
 # Show plot
 plt.show()
+
+#
+# fruits = ['apple', 'banana', 'orange', 'mango']
+# bins = [30, 25, 20, 15]
+# plt.pie(bins, labels=fruits, colors=['red', 'blue', 'orange', 'green'])
+#
+# plt.title('favorite fruit grph')
+# plt.show()
+

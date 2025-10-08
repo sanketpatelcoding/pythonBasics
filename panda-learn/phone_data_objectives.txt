@@ -55,5 +55,6 @@ Create a function to categorize days as "high activity" or "low activity" based 
 Calculate the network that was used most for each type of communication (call, sms, data).
 
 Find the ratio of outgoing calls to SMS messages for each network.
-
+counts = df.groupby(['network', 'item']).size().unstack()
+print(counts['call'] / counts['sms'])
 Create a summary DataFrame that shows for each network: total calls, total SMS, total duration, and average duration.
