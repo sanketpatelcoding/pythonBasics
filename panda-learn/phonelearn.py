@@ -182,3 +182,15 @@ print('================')
 df = pd.read_csv("phone_data.csv")
 print(df.groupby(['network', 'item']).size().unstack(fill_value=0)[['call', 'sms']].join(df.groupby('network')['duration'].agg(['sum', 'mean'])))
 # need to learn this if other way is possible.
+
+
+
+# 1)# Create a summary DataFrame that shows for each network: total calls, total SMS, total duration, and average duration.
+# ----------------------
+# counts = df.groupby(['network', 'item']).size().unstack()
+# r=counts['call'] / counts['sms']
+# print(f'{r}')
+# unstack grouped count to dataframe conversion
+# -----------------------------------------------------------------
+# 2)Calculate the total duration of communications for each day.(from net)
+# 3)(baaki)Find the most active hour of communication (assuming all occurred at same time for this dataset).
