@@ -15,7 +15,8 @@ import matplotlib.pyplot as plt
 # plt.show()
 
 # -------------------------------------------------
-
+# Network Usage: Create a pie chart showing the proportion of
+# usage by each network
 import pandas as pd
 import matplotlib.pyplot as plt
 
