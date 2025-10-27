@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # showing the count of each communication type (call, sms, data)
 
 
-# df = pd.read_csv("phone_data.csv")
+df = pd.read_csv("phone_data.csv")
 # counts = df.groupby('item').size()
 # plt.bar(counts.index, counts.values, color=['red', 'green', 'blue'])
 # plt.xlabel('Communication Type')
@@ -27,13 +27,42 @@ import matplotlib.pyplot as plt
 # Daily Activity: Plot a line chart showing the number of communications
 # per day
 # here to_datetime(df['date']).dt.date to grab date without time
-df = pd.read_csv("phone_data.csv")
-df['date_only'] = pd.to_datetime(df['date']).dt.date
-counts = df.groupby('date_only').size()
+# df = pd.read_csv("phone_data.csv")
+# df['date_only'] = pd.to_datetime(df['date']).dt.date
+# counts = df.groupby('date_only').size()
+#
+# plt.plot(counts.index, counts.values, color='#2196F3')
+# plt.xlabel('Date')
+# plt.ylabel('Number of Communications')
+# plt.title('Daily Communication Activity')
+# plt.xticks(rotation=45)
+# plt.show()
 
-plt.plot(counts.index, counts.values, color='#2196F3')
-plt.xlabel('Date')
-plt.ylabel('Number of Communications')
-plt.title('Daily Communication Activity')
-plt.xticks(rotation=45)
-plt.show()
+# -----------------------------------------------------
+# Duration by Network: Create a bar plot showing average duration by network
+
+# avg_duration = df.groupby('network')['duration'].mean()
+# plt.bar(avg_duration.index, avg_duration.values, color='red')
+# plt.xlabel('network')
+# plt.ylabel('avrg Duration (seconds)')
+# plt.title('averg Duration by Network')
+# plt.show()
+
+# ---------------------------------------------
+
+#SMS Count by Network: Generate a bar plot showing SMS count for each mobile network
+
+# sms_mobile = df[(df['item'] == 'sms') ]
+# sms_count = sms_mobile.groupby('network').size()
+#
+# plt.bar(sms_count.index, sms_count.values, color='blue')
+#
+# plt.xlabel('network')
+# plt.ylabel('smscount')
+# plt.title('sms counts by   network')
+# plt.show()
+#
+
+# --------------------------------------------
+
+#
