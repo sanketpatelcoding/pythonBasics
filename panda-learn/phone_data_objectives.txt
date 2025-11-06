@@ -34,11 +34,11 @@ Count how many communications occurred on each date.
 
 Calculate the total duration of communications for each day.
 
-(baaki)Find the most active hour of communication (assuming all occurred at same time for this dataset).
+(baki)Find the most active hour of communication (assuming all occurred at same time for this dataset).
 
 Create a pivot table showing the count of each item type (call, sms, data) per network.
 
-()Calculate the rolling 2-day average of call durations.
+(baki)Calculate the rolling 2-day average of call durations.
 
 Identify any anomalies in call durations (values beyond 3 standard deviations from mean).
 
@@ -46,11 +46,11 @@ Create a new DataFrame that shows the count and total duration of each item type
 
 Calculate the cumulative sum of call durations over time.
 
-Find the longest continuous sequence of calls from the same network.
+(baki)Find the longest continuous sequence of calls from the same network.
 
-Calculate the time difference between consecutive communications (requires datetime conversion).
+(baki)Calculate the time difference between consecutive communications (requires datetime conversion).
 
-Create a function to categorize days as "high activity" or "low activity" based on number of communications.
+(baki)Create a function to categorize days as "high activity" or "low activity" based on number of communications.
 
 Calculate the network that was used most for each type of communication (call, sms, data).
 
