@@ -9,7 +9,7 @@ def load_dataset(filepath):
     return df
 
 # ---------------------
-#  OBJECTIVE 1 – CALL DURATION DISTRIBUTION (Histogram)
+#  OBJE 1 – call duration distribution(Histogram)
 
 
 # def call_duration_histogram(df):
@@ -24,7 +24,7 @@ def load_dataset(filepath):
 #     plt.show()
 #     return {'status': 'histogram_shown'}
 # -------------------------------
-#  OBJ 2 – Comm type counting (Bar plot)
+#  OBJ 2 Comm type counting (Bar plot)
 # def communication_type_count(df):
 #     counts = df['item'].value_counts()
 #     plt.figure(figsize=(6, 4))
@@ -58,7 +58,7 @@ def load_dataset(filepath):
 #     plt.show()
 
 # ----------------------------------------
-#  Objective 4  daily activities(Linegraph)
+#  Objective 4 daily activities(Linegraph)
 # --------------------------------------------------------------
 def daily_activity_line(df):
     # convert date (mixeing)to simple datetime(from net)
@@ -75,6 +75,74 @@ def daily_activity_line(df):
     plt.show()
     return {'daily_counts': daily.to_dict()}
 
+
+#  obj 5 Duration by Network: Create a bar plot showing average duration by network
+def plot_avg_duration_by_network(df):
+    calls = df[df['item'] == 'call']
+    avg = calls.groupby('network')['duration'].mean()
+    plt.figure(figsize=(10, 5))
+    plt.bar(avg.index, avg.values, color='green', edgecolor='black')
+    plt.title('average call duration by network')
+    plt.xlabel('network')
+    plt.ylabel('average duration')
+    plt.show()
+
+    return {'plot':'average duration by network shown'}
+
+# ----------------------
+# sms count by network: generate a bar plot showing sms count for each mobile network
+# columns: network, item, network_type
+def plot_sms_by_mobile_network(df):
+    mobile_sms = df[(df['item'] == 'sms') & (df['network_type'] == 'mobile')]
+    sms_count = mobile_sms['network'].value_counts()
+
+    plt.figure(figsize=(8, 5))
+    plt.bar(sms_count.index, sms_count.values, color='orange', edgecolor='black')
+    plt.title('sms count by mobile netwrk')
+    plt.xlabel('netwrk')
+    plt.ylabel('numberof sms')
+    plt.show()
+
+    return {'plot': 'sms count by mobile network shown'}
+
+# -------------
+
+
+# call type distribution: create a pie chart showing the proportion of call durations (short, medium, long)
+# columns: duration, item
+def plot_call_type_distribution(df):
+    calls = df[df['item'] == 'call'].copy()
+    # short <1min (60s), medium ke liye 5min, long >5min
+    conditions = [
+        calls['duration'] < 60,
+        (calls['duration'] >= 60) & (calls['duration'] <= 300),
+        calls['duration'] > 300
+    ]
+    choices = ['short', 'medium', 'long']
+    calls['type'] = pd.Series(pd.cut(calls['duration'], bins=[0, 60, 300, float('inf')], labels=choices))
+
+    counts = calls['type'].value_counts()
+
+    plt.figure(figsize=(3, 3))
+    plt.pie(counts.values, labels=counts.index, autopct='%1.1f%%', colors=['lightgreen', 'skyblue', 'pink'])
+    plt.title('call type distribution')
+    plt.show()
+
+# -----------------
+# monthly activity: plot a bar chart showing total communications per month
+# columns: month
+def plot_monthly_communications(df):
+    monthly = df.groupby('month').size()
+
+    plt.figure(figsize=(9, 5))
+    plt.bar(monthly.index, monthly.values, color='purple', edgecolor='black')
+    plt.title('total communications per month')
+    plt.xlabel('month')
+    plt.ylabel('number of communications')
+    plt.show()
+
+
+
 # functin calling Area
 # ===============================
 df = load_dataset("phone_data.csv")
@@ -82,5 +150,9 @@ df = load_dataset("phone_data.csv")
 # call_duration_histogram(df)
 # comm_result = communication_type_count(df)
 # pie_result = network_usage_pie(df)
-daily_activity_line(df)
+# daily_activity_line(df)
+# plot_avg_duration_by_network(df)
+# plot_sms_by_mobile_network(df)
+# plot_call_type_distribution(df)
+plot_monthly_communications(df)
 # ---------------------------------
