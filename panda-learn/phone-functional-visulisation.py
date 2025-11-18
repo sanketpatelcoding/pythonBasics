@@ -2,6 +2,7 @@
 # --------------------------------------------------------------
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 import numpy as np
 
 def load_dataset(filepath):
@@ -140,7 +141,69 @@ def plot_monthly_communications(df):
     plt.xlabel('month')
     plt.ylabel('number of communications')
     plt.show()
+# ================================
+# network type usage: generate a count plot showing usage by network type (mobile, data, voicemail)
+# columns: network_type
+def plot_network_type_usage(df):
+    plt.figure(figsize=(5,5))
+    sns.countplot(data=df, x='network_type')
+    plt.title('usage by network type')
+    plt.xlabel('network type')
+    plt.ylabel('counts')
+    plt.show()
+    return {'plot': 'network type count plot shown'}
+# ================================
+# duration vs date: create a scatter plot of duration against date (with proper date formatting)
+# columns: date, duration
+def plot_duration_vs_date(df):
+    # fix mixed date formats(aa karya vina avatu nathi)
+    df['date_clean'] = pd.to_datetime(df['date'], format='mixed', dayfirst=True)
 
+    plt.figure(figsize=(10, 6))
+    plt.scatter(df['date_clean'], df['duration'], alpha=1, color='red')
+    plt.title('duration vs date')
+    plt.xlabel('date')
+    plt.ylabel('duration (seconds)')
+    plt.show()
+# ===========================================
+# network performance:generate a violin plot showing call duration distribution by network
+# columns: network, duration, item
+def plot_call_duration_violin(df):
+    calls = df[df['item'] == 'call']
+
+    plt.figure(figsize=(10, 6))
+    sns.violinplot(data=calls, x='network', y='duration')
+    plt.title('call duration distribution by network')
+    plt.xlabel('network')
+    plt.ylabel('duration (seconds)')
+    plt.show()
+#     -----------------------------------------------------
+# communication heatmap: create a heatmap showing communication patterns by date and network
+# columns: date, network
+def plot_communication_heatmap(df):
+    df['date_only'] = pd.to_datetime(df['date'], format='mixed', dayfirst=True).dt.date
+    heatmap_data = df.groupby(['date_only', 'network']).size().unstack(fill_value=0)
+    # uper nu net ma thi
+    plt.figure(figsize=(12, 8))
+    sns.heatmap(heatmap_data, cmap='YlOrRd', linewidths=.5)
+    plt.title('communication heatmap')
+    plt.xlabel('network')
+    plt.ylabel('date')
+    plt.tight_layout()
+    plt.show()
+#     --------------------------------------------
+# cumulative duration: plot a line chart showing cumulative call duration over time
+# columns: date, duration, item
+def plot_cumulative_call_duration(df):
+    df['date_time'] = pd.to_datetime(df['date'], format='mixed', dayfirst=True)
+    calls = df[df['item'] == 'call'][['date_time', 'duration']].sort_values('date_time')
+    calls['cumulative'] = calls['duration'].cumsum()
+    plt.figure(figsize=(12, 6))
+    plt.plot(calls['date_time'], calls['cumulative'], color='darkblue', linewidth=2)
+    plt.title('cumulative call duratin')
+    plt.xlabel('date')
+    plt.ylabel('cumulative duration in secs.')
+    plt.show()
 
 
 # functin calling Area
@@ -154,5 +217,10 @@ df = load_dataset("phone_data.csv")
 # plot_avg_duration_by_network(df)
 # plot_sms_by_mobile_network(df)
 # plot_call_type_distribution(df)
-plot_monthly_communications(df)
+# plot_monthly_communications(df)
+# plot_network_type_usage(df)
+# plot_duration_vs_date(df)
+# plot_call_duration_violin(df)
+# plot_communication_heatmap(df)
+# plot_cumulative_call_duration(df)
 # ---------------------------------
